@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Repaso JavaScript - jQueryUI (3)</title>
+	<meta charset="utf-8" /> 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">	
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/miscript.js"></script>
+</head>
+<body>
+<header>
+	<h1>Repaso javaScript</h1>
+</header>
+<form name="examen" action="" method="post">
+<fieldset id="eje01">
+	<legend>Ejercicio 1: Decir si el número es par o impar </legend>
+	<input type="text" name="num1_eje01" id="num1_eje01" placeholder="Número 1">
+	<button type="button" onclick="decir()">¿Par o impar?</button>
+	<span>Resultado:</span><span  id="resultado1" class="resultado"></span>
+</fieldset>
+
+<fieldset id="eje02">
+	<legend>Ejercicio 2: Calcular los datos de la factura. Añadir una cantidad a cada producto y apretar los botones de la calculadora para que calcule el valor del campo que tiene al lado.</legend>
+
+	<table id="factura">
+	<tr>
+		<th>Imagen</th>
+		<th>Descripción</th>
+		<th>Cantidad</th>
+		<th>€ / unidad</th>
+		<th>Total</th>
+	</tr>
+	<tr>
+		<td><img src="img/son-goku-fes.jpg" width="80px" height="auto"></td>
+		<td>DRAGON BALL Z. FIGURA SUPER SAIYAN SON GOKU FES!!</td>
+		<td><input type="number" id="cant01" name="cant01" min="0" value="0"></td>
+		<td><input type="text" id="total01" name="total01"disabled value="33.00"> €</td>
+		<td><input type="text" id="totaldragon" name="totaldragon"disabled><button type="button" onclick="totdragonb()"><i class="fas fa-calculator"></i></button></td>
+	</tr>
+	<tr>
+		<td><img src="img/star-wars-origami.jpg" width="80px" height="auto"></td>
+		<td>STAR WARS ORIGAMI</td>
+		<td><input type="number" id="cant02" name="cant01" min=0 value=0></td>
+		<td><input type="text" id="total02" name="total01"disabled value="16.50"> €</td>
+		<td><input type="text" id="totalstw" name="totalstw"disabled><button type="button" onclick="totalstar()"><i class="fas fa-calculator"></i></button></td>
+	</tr>
+	<tr class="total">
+		<td colspan="3"></td>
+		<td>BASE IMPONIBLE:</td>
+		<td><input type="text" id="base" name="base"disabled><button type="button" onclick="baseimponibile()"><i class="fas fa-calculator"></i></button></td>
+	</tr>
+	<tr>
+		<td colspan="3"></td>
+		<td>IVA (21%):</td>
+		<td><input type="text" id="ivat" name="ivat"disabled><button type="button" onclick="iva()"><i class="fas fa-calculator"></i></button></td>
+	</tr>
+	<tr>
+		<td colspan="3"></td>
+		<th>TOTAL:</th>
+		<th><input type="text" id="totcompl" name="totcompl"disabled><button type="button" onclick="totcomplessivo()"><i class="fas fa-calculator"></i></button></th>
+	</tr>
+	</table>	
+</fieldset>
+<fieldset id="eje03">
+	<legend>Ejercicio 3:Cambiar el color del texto o del fondo haciendo clic en la caja del color correspondiente</legend>
+	<div>Cambiar color del texto</div>
+	<div class="paleta">
+		<div class="cuadrado rojo" onclick="cambiatextocolor('#ffbfc5')"></div>
+		<div class="cuadrado verde" onclick="cambiatextocolor('#e2ffde')"></div>
+		<div class="cuadrado azul" onclick="cambiatextocolor('#d6fbff')"></div>
+		<div class="cuadrado amarillo" onclick="cambiatextocolor('#f5ff91')"></div>
+	</div>
+	<div>Cambiar color del fondo</div>
+	<div class="paleta">
+		<div class="cuadrado naranja" onclick="cambiafondocolor('#ff7200')"></div>
+		<div class="cuadrado marron" onclick="cambiafondocolor('#995900')"></div>
+		<div class="cuadrado lila" onclick="cambiafondocolor('#650099')"></div>
+		<div class="cuadrado gris" onclick="cambiafondocolor('#717171')"></div>
+	</div>
+	<div  id="resultado3" class="resultado">
+	Soy el texto al que le has de cambiar el color y el color del fondo.
+	</div>
+	
+</fieldset>
+
+<fieldset id="eje04">
+	<legend>Ejercicio 4: Seleccionar o deseleccionar todos los checkboxes</legend>
+	<button type="button" onclick="selecionarck(true)"> Seleccionar todos </button>
+	<button type="button" onclick="selecionarck(false)"> Deseleccionar todos </button><br />
+	<input type="checkbox">checkbox 1 <br />
+	<input type="checkbox">checkbox 2 <br />
+	<input type="checkbox">checkbox 3 <br />
+	<input type="checkbox">checkbox 4 <br />
+	<input type="checkbox">checkbox 5 <br />
+	<input type="checkbox">checkbox 6 <br />
+</fieldset>
+
+<fieldset id="eje05">
+	<legend>Ejercicio 5: Cambiar el formato de la letra con la opción que se selecciona en la lista desplegable (con jQuery)</legend>
+	<div>Seleccionar tipo de formato de letra</div>
+	<select id="formato">
+		  <option value="0">-- Seleccionar --</option>
+		  <option value="b">Negrita</option>
+		  <option value="i">Cursiva</option>
+		  <option value="u">Subrayado</option>
+		  <option value="ma">Mayúsculas</option>
+		  <option value="mi">Minúsculas</option>
+		</select>
+	<div  id="resultado5" class="resultado">
+	Soy el texto al que le has de cambiar el formato de letra
+	</div>
+	
+</fieldset>
+<fieldset id="eje06">
+	<legend>Ejercicio 6:Cambiar el color del texto o del fondo haciendo clic en la caja del color correspondiente con jQuery</legend>
+	<div>Cambiar color del texto</div>
+	<div class="paleta">
+		<div class="cuadrado rojo"></div>
+		<div class="cuadrado verde"></div>
+		<div class="cuadrado azul"></div>
+		<div class="cuadrado amarillo"></div>
+	</div>
+	<div>Cambiar color del fondo</div>
+	<div class="paleta">
+		<div class="cuadrado naranja"></div>
+		<div class="cuadrado marron"></div>
+		<div class="cuadrado lila"></div>
+		<div class="cuadrado gris"></div>
+	</div>
+	<div  id="resultado6" class="resultado">
+	Soy el texto al que le has de cambiar el color y el color del fondo.
+	</div>
+	
+</fieldset>
+<fieldset id="eje07">
+	<legend>Ejercicio 7: Seleccionar o deseleccionar todos los checkboxes con jQuery</legend>
+	<button type="button" onclick="selecionarck(true)"> Seleccionar todos </button>
+	<button type="button" onclick="selecionarck(false)"> Deseleccionar todos </button><br />
+	<input type="checkbox">checkbox 1 <br />
+	<input type="checkbox">checkbox 2 <br />
+	<input type="checkbox">checkbox 3 <br />
+	<input type="checkbox">checkbox 4 <br />
+	<input type="checkbox">checkbox 5 <br />
+	<input type="checkbox">checkbox 6 <br />
+</fieldset>
+
+
+
+</form>
+	
+</body>
+</html>
